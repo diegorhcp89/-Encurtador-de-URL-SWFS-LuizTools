@@ -24,7 +24,7 @@ class HomePage extends React.Component {
   }
 
   handleSubmit = async (event) => {
-    event.prventDefault();
+    event.preventDefault();
 
     const { url } = this.state;
 
