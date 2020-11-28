@@ -8,7 +8,7 @@ import {
   Alert,
   Spinner,
 } from "react-bootstrap";
-import { ContentContainer, Form } from "./styles";
+import { ContentContainer, Form, AdsBlock } from "./styles";
 import ShortenerService from "../../services/shortenerService";
 
 class HomePage extends React.Component {
@@ -28,7 +28,7 @@ class HomePage extends React.Component {
 
     const { url } = this.state;
 
-    this.setState({ isLoading: true, errorMessage: ' ' });
+    this.setState({ isLoading: true, errorMessage: '' });
 
     if (!url) {
       this.setState({
@@ -70,7 +70,7 @@ class HomePage extends React.Component {
                 onChange={e => this.setState({ url: e.target.value })}
               />
               <InputGroup.Append>
-                <Button variant="primary" type="submit">
+                <Button variant="btn btn-dark" type="submit">
                   Encurtar
                 </Button>
               </InputGroup.Append>
@@ -88,7 +88,7 @@ class HomePage extends React.Component {
                       ref={(input) => this.inputURL = input}
                     />
                     <InputGroup.Append>
-                      <Button variant="outline-secondary" onClick={() => this.copyToClipboard()}>Copiar</Button>
+                      <Button variant="btn btn-secondary" onClick={() => this.copyToClipboard()}>Copiar</Button>
                     </InputGroup.Append>
                   </InputGroup>
                   <p>Para acompanhar as estatisticas, acessso https://pitu.tk/{code}</p>
@@ -97,6 +97,9 @@ class HomePage extends React.Component {
             )}
             {errorMessage && <Alert variant="danger">{errorMessage}</Alert>}
           </Form>
+        </ContentContainer>
+        <ContentContainer>
+          <AdsBlock>Adsense</AdsBlock>
         </ContentContainer>
       </Container>
     );
